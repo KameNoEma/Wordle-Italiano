@@ -27,6 +27,14 @@
   cursor: default;
 }
 
+.key:hover {
+  background-color: #ddd;
+}
+
+.key:active {
+  background-color: #bbb;
+}
+
 .key-absent {
   background-color: #222;
   color: white;
