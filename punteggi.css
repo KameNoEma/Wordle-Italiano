@@ -162,3 +162,35 @@ body {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
+
+/* Rende i grafici in colonna sui dispositivi mobili */
+@media (max-width: 600px) {
+  .charts-grid {
+    grid-template-columns: 1fr; /* Un solo grafico per riga */
+  }
+
+  .charts-grid canvas {
+    max-width: 100%; /* Larghezza massima dei grafici */
+    margin: 10px 0; /* Spazio tra i grafici */
+  }
+}
+
+/* Modifica layout pulsanti su schermi piccoli */
+@media (max-width: 600px) {
+  #restart-button, #azzera-statistiche {
+    width: 100%; /* Pulsanti che occupano tutta la larghezza */
+    margin-top: 10px; /* Spazio tra i pulsanti */
+  }
+}
+
+/* Mantieni il layout originale su schermi più larghi */
+@media (min-width: 601px) {
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr); /* Due colonne per desktop */
+  }
+
+  #restart-button, #azzera-statistiche {
+    width: auto; /* Pulsanti tornano alla larghezza originale */
+    margin-top: 0; /* Spazio tra i pulsanti non necessario su desktop */
+  }
+}
