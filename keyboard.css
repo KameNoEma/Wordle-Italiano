@@ -26,7 +26,9 @@
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   cursor: pointer;
 }
-
+.key-wide {
+  width: 120px; /* circa 3x la larghezza normale */
+}
 .key:hover {
   background-color: #222;
   color: white;
