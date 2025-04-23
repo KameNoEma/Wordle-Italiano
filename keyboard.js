@@ -52,7 +52,7 @@ function markKeyCorrect(letter) {
 document.querySelectorAll(".key").forEach(keyButton => {
   keyButton.addEventListener("click", (e) => {
     const key = e.target.getAttribute("data-key").toLowerCase();
-
+ console.log(key);
     if (key === "backspace") {
       // Gestione del backspace
       currentGuess = currentGuess.slice(0, -1);
