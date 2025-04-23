@@ -20,16 +20,6 @@
   display: none !important;
 }
 
-@media (max-width: 600px) {
-  .score-content {
-    width: 100%;
-    max-width: 95vw;
-    padding: 20px;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-}
-
 .score-content {
   max-width: 1000px;
   width: 100%;
@@ -173,24 +163,28 @@ body {
   box-sizing: border-box;
 }
 
-/* Rende i grafici in colonna sui dispositivi mobili */
-@media (max-width: 600px) {
-  .charts-grid {
-    grid-template-columns: 1fr; /* Un solo grafico per riga */
-  }
-
-  .charts-grid canvas {
-    max-width: 100%; /* Larghezza massima dei grafici */
-    margin: 10px 0; /* Spazio tra i grafici */
-  }
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
-/* Modifica layout pulsanti su schermi piccoli */
+/* Layout per dispositivi mobili */
 @media (max-width: 600px) {
+  /* Contenitore dei pulsanti a colonna su mobile */
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Rendi la schermata dei punteggi un po' più stretta */
   .score-content {
     padding: 20px;
   }
 
+  /* Rendi i pulsanti a larghezza 100% (su mobile) */
   #restart-button,
   #azzera-statistiche {
     position: static;
@@ -199,17 +193,13 @@ body {
     max-width: 300px;
     display: block;
   }
-}
 
-
-/* Mantieni il layout originale su schermi più larghi */
-@media (min-width: 601px) {
+  /* Griglia dei grafici a colonna (su mobile) */
   .charts-grid {
-    grid-template-columns: repeat(2, 1fr); /* Due colonne per desktop */
+    grid-template-columns: 1fr;
   }
 
-  #restart-button, #azzera-statistiche {
-    width: auto; /* Pulsanti tornano alla larghezza originale */
-    margin-top: 0; /* Spazio tra i pulsanti non necessario su desktop */
+  .charts-grid canvas {
+    margin: 10px 0;
   }
 }
