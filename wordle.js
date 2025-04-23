@@ -82,6 +82,11 @@ function generateBoard() {
     board.appendChild(row);
   }
  setActiveRow(0);
+  document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("tile")) {
+    document.getElementById("hidden-input").focus();
+  }
+});
 const firstRow = document.querySelector('.row[data-row="0"]');
 if (firstRow) {
   firstRow.focus(); // 👈 Forza il focus sulla prima riga
