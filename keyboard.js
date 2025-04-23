@@ -33,7 +33,7 @@ function createKeyboard() {
     });
 
     // Aggiungi i tasti speciali (backspace e enter) alla fine delle righe
-    if (rowIndex === 2) { // Se siamo nell'ultima riga
+    if (rowIndex === 3) { // Se siamo nell'ultima riga
       // Tasto backspace
       const backspaceKey = document.createElement("div");
       backspaceKey.classList.add("key");
