@@ -71,4 +71,3 @@ document.querySelectorAll(".key").forEach(keyButton => {
     }
   });
 });
-createKeyboard(); // chiamala appena parte il gioco o in startNewGame()
