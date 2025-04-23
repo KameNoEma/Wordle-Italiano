@@ -162,8 +162,24 @@ select#word-length:focus {
   gap: 10px;
 }
 
+@media (max-width: 600px) {
+  .game-container {
+    width: 95%;
+    padding: 1rem;
+    margin: 20px auto;
+  }
+
+  .tile {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
 /* Responsive layout per schermi piccoli */
-@media (max-width: 500px) {
   .popup-buttons {
     flex-direction: column;
     align-items: stretch;
