@@ -22,8 +22,9 @@
 
 @media (max-width: 600px) {
   .score-content {
+    width: 100%;
     max-width: 95vw;
-    padding: 20px 10px;
+    padding: 20px;
     margin: 0 auto;
     box-sizing: border-box;
   }
