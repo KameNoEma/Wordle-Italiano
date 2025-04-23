@@ -48,4 +48,27 @@ function markKeyCorrect(letter) {
   }
 }
 
+// Gestisci il click sui tasti della tastiera virtuale
+document.querySelectorAll(".key").forEach(keyButton => {
+  keyButton.addEventListener("click", (e) => {
+    const key = e.target.getAttribute("data-key").toLowerCase();
+
+    if (key === "backspace") {
+      // Gestione del backspace
+      currentGuess = currentGuess.slice(0, -1);
+      updateCurrentRow();
+    } else if (key === "enter") {
+      // Gestione del tasto Enter
+      if (currentGuess.length === wordLength) {
+        checkGuess();
+      }
+    } else if (/^[a-zàèéìòù]$/i.test(key)) {
+      // Gestione delle lettere
+      if (currentGuess.length < wordLength) {
+        currentGuess += key;
+        updateCurrentRow();
+      }
+    }
+  });
+});
 createKeyboard(); // chiamala appena parte il gioco o in startNewGame()
