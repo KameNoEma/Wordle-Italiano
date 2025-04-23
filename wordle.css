@@ -133,3 +133,86 @@ select#word-length:focus {
   background-color: #f0f8ff;  /* Colore di sfondo quando selezionato */
   outline: none;  /* Rimuove il bordo di focus predefinito */
 }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.popup-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Responsive layout per schermi piccoli */
+@media (max-width: 500px) {
+  .popup-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .popup-button {
+    width: 100%;
+  }
+}
+
+.popup-button {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px;
+}
+
+.popup-button:hover {
+  transform: scale(1.05);
+}
+
+.popup-button:active {
+  transform: scale(0.98);
+}
+
+.popup-button.red {
+  background-color: #f44336;
+}
+
+.popup-button.red:hover {
+  background-color: #e53935;
+}
+
+.popup-button.green {
+  background-color: #4CAF50;
+}
+
+.popup-button.green:hover {
+  background-color: #43A047;
+}
+
+.popup-button.orange {
+  background-color: #ff9800;
+}
+
+.popup-button.orange:hover {
+  background-color: #fb8c00;
+}
