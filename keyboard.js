@@ -66,12 +66,6 @@ function handleKeyPress(key) {
   }
 }
 
-function handleKeyPress(letter) {
-  if (currentGuess.length < wordLength) {
-    currentGuess += letter; // Aggiungi la lettera alla parola corrente
-    updateCurrentRow(); // Aggiorna la riga nella griglia
-  }
-}
 // Funzione per segnare le lettere "present" sulla tastiera
 function markKeyPresent(letter) {
   const key = keyboardKeys[letter];
