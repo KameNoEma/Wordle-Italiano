@@ -20,6 +20,15 @@
   display: none !important;
 }
 
+@media (max-width: 600px) {
+  .score-content {
+    max-width: 95vw;
+    padding: 20px 10px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+}
+
 .score-content {
   max-width: 1000px;
   width: 100%;
@@ -177,11 +186,20 @@ body {
 
 /* Modifica layout pulsanti su schermi piccoli */
 @media (max-width: 600px) {
-  #restart-button, #azzera-statistiche {
-    width: 100%; /* Pulsanti che occupano tutta la larghezza */
-    margin-top: 10px; /* Spazio tra i pulsanti */
+  .score-content {
+    padding: 20px;
+  }
+
+  #restart-button,
+  #azzera-statistiche {
+    position: static;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 300px;
+    display: block;
   }
 }
+
 
 /* Mantieni il layout originale su schermi più larghi */
 @media (min-width: 601px) {
