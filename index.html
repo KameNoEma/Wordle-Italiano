@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wordle Italiano</title>
+  <link rel="stylesheet" href="wordle.css" />
+  <link rel="stylesheet" href="keyboard.css" />
+  <link rel="stylesheet" href="punteggi.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>Wordle Italiano</h1>
+
+    <label for="word-length">Scegli la lunghezza della parola:</label>
+    <select id="word-length">
+      <!-- da 4 a 10 -->
+      <option value="4">4 lettere</option>
+      <option value="5" selected>5 lettere</option>
+      <option value="6">6 lettere</option>
+      <option value="7">7 lettere</option>
+      <option value="8">8 lettere</option>
+      <option value="9">9 lettere</option>
+      <option value="10">10 lettere</option>
+    </select>
+    <button id="start-button">Inizia</button>
+
+    <div id="board"></div>
+    <div id="keyboard"></div>
+    <div id="message"></div>
+
+  </div>
+
+ <!-- Schermata dei punteggi (vuota) -->
+<div id="score-screen" class="score-screen hidden">
+  <div class="score-content">
+    <h2 id="score-title"></h2>
+    <p id="score-message"></p>
+    <div id="game-history">
+      <ul id="history-list"></ul>
+    </div>
+    <div id="chart-container"></div>
+    <button id="restart-button">Nuova partita</button>
+    <button id="azzera-statistiche">Azzera statistiche</button>
+  </div>
+</div>
+
+  <script src="wordle.js"></script>
+  <script src="keyboard.js"></script>
+  <script src="punteggi.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

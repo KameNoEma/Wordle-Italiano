@@ -1,0 +1,164 @@
+.score-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-y: auto; /* Attiva lo scroll verticale */
+  overflow-x: hidden;
+  z-index: 100;
+  padding: 40px 20px 20px; /* Spazio in alto e laterale */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Allinea in alto */
+}
+
+
+/* Aggiungi una classe per nascondere */
+.hidden {
+  display: none !important;
+}
+
+.score-content {
+  max-width: 1000px;
+  width: 100%;
+  background-color: #fefefe;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #333;
+}
+
+/* Rende il gioco scrollabile quando la schermata dei punteggi è aperta */
+#game-container {
+  margin-top: 200px; /* Distanza dal margine superiore per non sovrapporsi alla schermata dei punteggi */
+  padding: 10px;
+  overflow-y: auto; /* Permette lo scroll verticale */
+  height: calc(100vh - 200px); /* Altezza dinamica del gioco, meno la schermata dei punteggi */
+}
+
+/* Disabilita lo scroll orizzontale per il corpo della pagina */
+body {
+  overflow-x: hidden; /* Disabilita lo scroll orizzontale */
+  overflow-y: auto; /* Consente lo scroll verticale */
+}
+
+
+/* Titolo */
+#score-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+#score-title.win {
+  color: #4CAF50;
+}
+#score-title.loss {
+  color: #F44336;
+}
+#score-title.win::before {
+  content: "🏆 ";
+}
+#score-title.loss::before {
+  content: "😔 ";
+}
+
+/* Messaggio + lista punteggi */
+#score-message {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+#score-message ul {
+  list-style-type: none;
+  padding: 0;
+}
+#score-message li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+#score-message li.win {
+  color: #4caf50;
+}
+#score-message li.loss {
+  color: #f44336;
+}
+
+/* Pulsante in alto a destra */
+#restart-button {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  background-color: #538d4e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#restart-button:hover {
+  background-color: #6aaa64;
+  transform: scale(1.05);
+}
+#restart-button:active {
+  transform: scale(0.98);
+}
+
+/* Pulsante in alto a destra */
+#azzera-statistiche {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+#azzera-statistiche:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+#azzera-statistiche:active {
+  transform: scale(0.98);
+}
+
+/* Griglia dei grafici - Due colonne, ma flessibile */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Due colonne per riga */
+  gap: 10px; /* Spazio tra i grafici */
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  justify-items: center; /* Centra i grafici nelle celle */
+  box-sizing: border-box; /* Per evitare che il contenuto esca fuori dal contenitore */
+}
+
+.charts-grid canvas {
+  max-width: 480px; /* Limita la larghezza massima a 250px */
+  width: 100%;
+  max-height: 260px;
+  aspect-ratio: auto;
+  display: block;
+  margin: 4px auto; /* Centra il grafico orizzontalmente */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
