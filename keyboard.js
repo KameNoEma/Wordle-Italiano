@@ -59,6 +59,25 @@ function createKeyboard() {
   });
 }
 
+function handleKeyPress(key) {
+  if (key === "backspace") {
+    // Gestisci il backspace (ad esempio, rimuovi l'ultimo carattere)
+    currentGuess = currentGuess.slice(0, -1);
+    updateCurrentRow();
+  } else if (key === "enter") {
+    // Gestisci l'invio (ad esempio, verifica la parola)
+    if (currentGuess.length === wordLength) {
+      checkGuess();
+    }
+  } else {
+    // Gestisci la lettera (aggiungi il carattere alla parola corrente)
+    if (currentGuess.length < wordLength) {
+      currentGuess += key;
+      updateCurrentRow();
+    }
+  }
+}
+
 function handleKeyPress(letter) {
   if (currentGuess.length < wordLength) {
     currentGuess += letter; // Aggiungi la lettera alla parola corrente
