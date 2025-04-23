@@ -37,6 +37,7 @@ function startNewGame() {
   generateBoard();
   createKeyboard();
   console.log("Parola segreta:", secretWord); // DEBUG
+  createKeyboard();
 }
 
 // Imposta la riga attiva
