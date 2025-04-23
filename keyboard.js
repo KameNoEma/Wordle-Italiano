@@ -19,19 +19,24 @@ function createKeyboard() {
       key.textContent = letter;
       key.setAttribute("data-key", letter);
       keyboardKeys[letter] = key;
+      
+      // Aggiungi l'event listener per il click
+      key.addEventListener("click", () => {
+        handleKeyPress(letter); // Chiama la funzione per gestire il click
+      });
+      
       rowDiv.appendChild(key);
     }
     keyboardContainer.appendChild(rowDiv);
   });
 }
 
-function markKeyAbsent(letter) {
-  const key = keyboardKeys[letter];
-  if (key && !key.classList.contains("key-absent")) {
-    key.classList.add("key-absent");
+function handleKeyPress(letter) {
+  if (currentGuess.length < wordLength) {
+    currentGuess += letter; // Aggiungi la lettera alla parola corrente
+    updateCurrentRow(); // Aggiorna la riga nella griglia
   }
 }
-
 // Funzione per segnare le lettere "present" sulla tastiera
 function markKeyPresent(letter) {
   const key = keyboardKeys[letter];
