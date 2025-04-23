@@ -25,8 +25,10 @@ function createKeyboard() {
       // Simboli e testi personalizzati
       if (letter === "backspace") {
         key.textContent = "←";
+        key.classList.add("key-wide");
       } else if (letter === "enter") {
         key.textContent = "Enter";
+        key.classList.add("key-wide");
       } else {
         key.textContent = letter;
       }
