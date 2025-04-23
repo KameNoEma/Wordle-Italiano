@@ -37,7 +37,7 @@
 
 /* Rende il gioco scrollabile quando la schermata dei punteggi è aperta */
 #game-container {
-  margin-top: 200px; /* Distanza dal margine superiore per non sovrapporsi alla schermata dei punteggi */
+  margin-top: 50px; /* Distanza dal margine superiore per non sovrapporsi alla schermata dei punteggi */
   padding: 10px;
   overflow-y: auto; /* Permette lo scroll verticale */
   height: calc(100vh - 200px); /* Altezza dinamica del gioco, meno la schermata dei punteggi */
