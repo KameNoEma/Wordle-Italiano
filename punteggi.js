@@ -209,7 +209,7 @@ function updateAttemptsChart(winData, defeatData, wordLength) {
         },
         y: {
           beginAtZero: true,
-          reverse: true,
+          reverse: false,
           ticks: {
             font: 11,
             callback: value => value < winData.length ? value + 1 : "Fallito",
