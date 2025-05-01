@@ -148,14 +148,14 @@ function updateAttemptsChart(winData, defeatData, wordLength) {
       labels: attemptsLabels,
       datasets: [
         {
-          label: `Vittorie`,
+          label: Vittorie (${wordLength} lettere),
           data: winData,
           backgroundColor: "#538d4e",
           borderColor: "#3e8e41",
           borderWidth: 1,
         },
         {
-          label: `Sconfitte`,
+          label: Sconfitte (${wordLength} lettere),
           data: defeatData,
           backgroundColor: "#f44336",
           borderColor: "#e53935",
