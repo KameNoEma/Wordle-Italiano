@@ -125,8 +125,8 @@ function updateAttemptsChart(winData, defeatData, wordLength) {
     chartCanvas.id = chartId;
     chartsContainer.appendChild(chartCanvas);
   }
+  const attemptsLabels = [];
   const maxAttempts = winData.length;
-  const attemptsLabels = ['Fallito', ...Array.from({ length: maxAttempts }, (_, i) => (i + 1).toString())];
   for (let i = 1; i < maxAttempts; i++) {
     attemptsLabels.push(`${i} Tentativi`);
   }
