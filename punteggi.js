@@ -142,88 +142,104 @@ function updateAttemptsChart(winData, defeatData, wordLength) {
     chartCanvas.chartInstance.destroy();
   }
 
-  const chart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: attemptsLabels,
-      datasets: [
-        {
-          label: Vittorie,
-          data: winData,
-          backgroundColor: "#538d4e",
-          borderColor: "#3e8e41",
-          borderWidth: 1,
+const chart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: attemptsLabels,
+    datasets: [
+      {
+        label: "Vittorie",
+        data: winData,
+        backgroundColor: "#538d4e",
+        borderColor: "#3e8e41",
+        borderWidth: 1,
+      },
+      {
+        label: "Sconfitte",
+        data: defeatData,
+        backgroundColor: "#f44336",
+        borderColor: "#e53935",
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    indexAxis: "y",
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        bodyFont: {
+          size: 12,
         },
-        {
-          label: Sconfitte,
-          data: defeatData,
-          backgroundColor: "#f44336",
-          borderColor: "#e53935",
-          borderWidth: 1,
+        titleFont: {
+          size: 13,
         },
-      ],
+      },
+      title: {
+        display: true,
+        text: `Parola di ${wordLength} lettere`,
+        font: {
+          size: 14,
+          weight: "bold",
+        },
+        padding: {
+          top: 2,
+          bottom: 2,
+        },
+      },
     },
-    options: {
-      responsive: true,
-      indexAxis: "y",
-      plugins: {
-        legend: {
-          display: false,
-        },
-        tooltip: {
-          bodyFont: {
-            size: 12,
-          },
-          titleFont: {
-            size: 13,
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 2,
+          callback: value => Number.isInteger(value) ? value : "",
+          font: {
+            size: 11,
           },
         },
-        // Aggiungi un titolo direttamente nel grafico
         title: {
           display: true,
-          text: `Parola di ${wordLength} lettere`, // Imposta il titolo dinamico
+          text: "Numero di partite",
           font: {
-            size: 14, // Imposta la dimensione del font del titolo
-            weight: "bold", // Puoi cambiare lo stile se lo desideri
-          },
-          padding: {
-            top: 2, // Distanza dal bordo superiore del grafico
-            bottom: 2, // Distanza dal bordo inferiore del titolo
-          }
-        },
-      },
-      scales: {
-        x: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 2,
-            callback: value => Number.isInteger(value) ? value : "",
-            font: 11,
-          },
-          title: {
-            display: true,
-            text: "Numero di partite",
-            font: 12,
-          },
-        },
-        y: {
-          beginAtZero: true,
-          ticks: {
-            font: 11,
-            callback: value => value < winData.length ? value + 1 : "Fallito",
-          },
-          title: {
-            display: true,
-            text: "Tentativi",
-            font: 12,
+            size: 12,
           },
         },
       },
-      layout: {
-        padding: 2
-      }
-    }
-  });
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1,
+          callback: function(value, index, ticks) {
+            if (index === ticks.length - 1) {
+              return "Sconfitte";
+            }
+            return value + 1;
+          },
+          font: {
+            size: 11,
+          },
+        },
+        suggestedMax: winData.length,
+        title: {
+          display: true,
+          text: "Tentativi",
+          font: {
+            size: 12,
+          },
+        },
+      },
+    },
+    layout: {
+      padding: 2,
+    },
+  },
+});
+
+
 
   // Salva l'istanza del grafico per distruggerla se serve
   chartCanvas.chartInstance = chart;
